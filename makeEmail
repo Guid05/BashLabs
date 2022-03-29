@@ -1,0 +1,9 @@
+#!/bin/bash
+
+userlist=$(awk -F: '$6 ~ /\/home/ {print $1}' /etc/passwd | sort -r)
+touch "outputEmail" 2> /dev/null
+
+for user in $userlist ; do
+email="$user.@fakeEmail.local"
+echo "$user     $email" >> outputEmail
+done
