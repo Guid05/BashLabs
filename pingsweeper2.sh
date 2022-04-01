@@ -29,7 +29,7 @@ pingsweeper () {
                         # if  ping is sucessfull, test every port specified
                         if [[ $? -eq 0 ]] ; then
                         for port in $2 ; do
-                        bash -c "echo 1 >/dev/tcp/$baseIp.$count/$2"
+                        bash -c "echo 1 >/dev/tcp/$baseIp.$count/$port"
                         done
                         fi
                         let "count+=1"
